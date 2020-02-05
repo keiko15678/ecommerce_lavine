@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="https://kit.fontawesome.com/ba841414d2.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class=wrapper>
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li id="dropdown" class="nav-item">
+                    <i id="dropdown-icon" class="fas fa-bars" onclick="showmenu()"></i>
+                    <ul id="dropdown-menu" style="">
+                        <li class="dropdown-btn"><a href="../index.html">Home</a></li class="dropdown-btn"></li>
+                        <li class="dropdown-btn"><a href="#">New Arrivals</a></li>
+                        <li class="dropdown-btn" id="login-btn"><a href="#">Sign In</a></li>
+                    </ul>
+                </li>
+                <li id="logo" class="nav-item"><a href="#">Lavine</a href></li>
+                <li id="search" class="nav-item"><a href="#"><i class="fas fa-search"></i></a></li>
+                <li id="cart" class="nav-item"><a href="cart.html"><i class="fas fa-shopping-cart"></a></i></li>
+            </ul>
+        </nav>
+
+        <div id="sales" class="sales">
+            Checkout our latest sales <a href="#"><fonts style="color:yellow;">here</fonts></a>.
+        </div>
+
+
+        <header class="cards-header">
+            <h1>Shop Men</h1>
+        </header>
+
+        <section class="cards">        
+            <!--<div class="cards-child">
+                <div class="cards-title">Lorem ipsum</div>
+                <img class="cards-child-img" src="carousel-1.jpg">
+                <div class="cards-child-description">
+                    
+                    <p class="cards-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                    <div class="cards-btn">
+                        <p class="cards-price">$ <span class="price-tag">29.99</span></p>
+                        <a href="#" class="btn btn-cards add-to-cart">+ Cart</a>
+                        <a href="item_details.html" class="btn btn-cards cards-detail">Details</a>
+                    </div>
+                </div>
+            </div>-->
+
+        </section>
+
+        <section class="signup">
+            <p>Sign up for exclusive sales alert on new arrivals</p>
+            <form id="signup-form">
+                <div class="signup-radios">
+                    <input type="radio" name="choose-wear">Womenswear
+                    <input type="radio" name="choose-wear">MensWear
+                </div>
+                <input type="email" placeholder="Enter email">
+                <button type="submit" class="btn">Sign up</button>
+            </form>
+        </section>
+
+        <section>
+            <div id="pop-up" class="pop-up">
+                <span class="pop-up-helper"></span>
+                <div>
+                    <!--<div class="pop-up-close">&times;</div>-->
+                    <p>Added to Cart</p>
+                </div>
+            </div>
+            <div id="pop-up2" class="pop-up">
+                <span class="pop-up-helper"></span>
+                <div>
+                    <!--<div class="pop-up-close">&times;</div>-->
+                    <p>Already In Cart!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="login-modal">
+            <div id="login-modal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span id="login-close" class="close">&times;</span>
+
+                    <!--login form-->
+                    <p class="login-intro">Enter Your Credentials</p>
+                    <form class="help-form" action="" method="post">
+                        <div class="help-input responsive">
+                            <span>Email</span><input class="help-bar" type="email" placeholder="Enter your email"/>
+                        </div>
+                        <div class="help-input responsive">
+                            <span>Password</span><input class="help-bar" type="password" placeholder="Enter your password"/>
+                        </div>
+                        <div class="login-input">
+                            <input class="btn login-btn" type="submit" value="SIGN IN">
+                            <a id="signup" onclick="closeLogin()" href="#">Don't have an account? Sign up now!</a>
+                        </div>
+                    </form>
+                </div>             
+            </div>
+        </section>
+
+        <section class="signup-modal">
+            <div id="signup-modal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span id="signup-close" class="close">&times;</span>
+
+                    <!--login form-->
+                    <p class="login-intro">Enter Your Credentials</p>
+                    <form class="help-form" action="" method="post">
+                        <div class="help-input responsive">
+                            <span>Email</span><input class="help-bar" type="email" placeholder="Enter your email"/>
+                        </div>
+                        <div class="help-input responsive">
+                            <span>Password</span><input class="help-bar" type="password" placeholder="Enter your password"/>
+                        </div>
+                        <div class="signup-input responsive">
+                            <span>Preference</span>
+                            <div class="signup-radios">
+                                <input class="signup-bar-radio" name="gender" type="radio" value="menswear"/><small>Menswear</small>
+                            </div>
+                            <div class="signup-radios">
+                                <input class="signup-bar-radio" name="gender" type="radio" value="woenswear"/><small>Womenswear</small>
+                            </div>
+                            <div class="signup-radios">
+                                <input class="signup-bar-radio" name="gender" type="radio" value="both"/><small>Both</small>
+                            </div>              
+                        </div>
+                        <div class="signup-input responsive">
+                            <span>Region</span>
+                            <div class="selectContainer">
+                                <select>
+                                    <option>Americas</option>
+                                    <option>Europe</option>
+                                    <option>Asia</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="signup-input responsive">
+                            <div class="signup-checkboxes">
+                                <input class="help-bar" type="checkbox"/>
+                                <small>Notifications on New Arrivals</small>
+                            </div>
+                            <div class="signup-checkboxes">
+                                <input class="help-bar" type="checkbox"/>  
+                                <small>Alerts on Latest Sales</small>
+                            </div>
+                        </div>
+                        <div class="signup-input">
+                            <input class="btn login-btn" type="submit" value="SIGN UP">
+                            <p id="signup" class="signup-footer">By Signing up you agree to our <a><strong>Privacy Policy</strong></a> and <a><strong>Terms and Servcices</strong></a>.
+                            </p>
+                        </div>
+                    </form>
+                </div>             
+            </div>
+        </section>
+        
+        <footer>
+            <p>LAVINE Inc.</p>
+        </footer>
+    </div>
+    <!--wrapper ends-->
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../static/shop.js" async></script>
+<script src="../static/index.js" async></script>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="static/style.css">   
+    <script src="https://kit.fontawesome.com/ba841414d2.js" crossorigin="anonymous"></script>
+    <title>Lavine</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li id="dropdown" class="nav-item">
+                    <i id="dropdown-icon" class="fas fa-bars" onclick="showmenu()"></i>
+                    <ul id="dropdown-menu" style="">
+                        <li class="dropdown-btn" ><a href="index.html">Home</a></liclass="menu-btn" ></li>
+                        <li class="dropdown-btn" ><a href="#">New Arrivals</a></li>
+                        <li class="dropdown-btn" id="login-btn"><a>Sign In</a></li>
+                    </ul>
+                </li>
+                <li id="logo" class="nav-item"><a>Lavine</a href></li>
+                <li id="search" class="nav-item"><a href="#"><i class="fas fa-search"></i></a></li>
+                <li id="cart" class="nav-item"><a href="pages/cart.html"><i class="fas fa-shopping-cart"></a></i></li>
+            </ul>
+        </nav>
+
+        <div id="sales" class="sales">
+            Checkout our latest sales <a href="#"><fonts style="color:yellow;">here</fonts></a>.
+        </div>
+
+        <section class="shop-btn">
+            <a href="pages/shop-men.html" class="box1">
+                <p>Shop Men</p>
+            </a>
+            <a href="pages/shop-women.html" class="box2">
+                <p>Shop women</p>
+            </a>
+        </section>
+
+        <section class="feature">
+            <ul>
+                <li class="feature-text">
+                    <i class="fas fa-box fa-2x"></i>
+                    <p>Free returns</p>
+                </li>
+                <li class="feature-text">
+                    <i class="fas fa-box-open fa-2x"></i>
+                    <p>Fast Shipping</p>
+                </li>
+                <li id="feature-last-child" class="feature-text">
+                    <i class="fas fa-phone-square-alt fa-2x"></i>
+                    <p>Responsive Service</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="links">
+            <ul>
+                <li id="links-first-child" class="links-text">
+                    <a>
+                        <i class="fas fa-info-circle fa-2x"></i>
+                        <p>How to Shop</p>
+                    </a>
+                </li>
+                <li id="faq" class="links-text">
+                    <a>
+                        <i class="fas fa-question-circle fa-2x"></i>
+                        <p>FAQ</p>
+                    </a>
+                </li>
+                <li id="help-desk" class="links-text">
+                    <a>
+                        <i class="fas fa-people-carry fa-2x"></i>
+                        <p>Help Desk</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="signup">
+            <p>Sign up for exclusive sales alert on new arrivals</p>
+            <form id="signup-form">
+                <div class="signup-radios">
+                    <input type="radio" name="choose-wear">Womenswear
+                    <input type="radio" name="choose-wear">MensWear
+                </div>
+                <input type="email" placeholder="Enter email">
+                <button type="submit" class="btn">Sign up</button>
+            </form>
+        </section>
+
+        <section class="help-modal">
+            <div id="help-modal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span id="help-close" class="close">&times;</span>
+
+                  <!--help form-->
+                  <p class="help-intro">Please enter your information below, we will reply within 24 hours.</p>
+                  <form class="help-form" action="" method="post">
+                    <div class="help-input responsive">
+                        <span>Email</span><input class="help-bar" type="email" placeholder="Enter your email"/>
+                    </div>
+                    <div class="help-input responsive">
+                        <span>Name</span><input class="help-bar" type="text" placeholder="Enter your name"/>
+                    </div>
+                    <div class="help-input">
+                        <span>Message</span><input class="help-msg" type="text" placeholder="Enter your message"/><!-- <textarea rows=3></textarea> -->
+                    </div>
+                    <div class="help-input">
+                        <input class="btn" type="submit" value="Submit">                       
+                    </div>
+                  </form>
+                  
+                </div>             
+            </div>
+        </section>
+
+        <section class="faq-modal">
+            <div id="faq-modal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span id="faq-close" class="close">&times;</span>
+                  <p>Some text in the Modal..</p>
+                </div>             
+            </div>
+        </section>
+
+        <section class="guide-modal">
+            <div id="guide-modal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span id="guide-close" class="close">&times;</span>
+                  <p>Some text in the Modal..</p>
+                </div>             
+            </div>
+        </section>
+
+        <section class="login-modal">
+            <div id="login-modal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span id="login-close" class="close">&times;</span>
+
+                    <!--login form-->
+                    <p class="login-intro">Enter Your Credentials</p>
+                    <form class="help-form" action="" method="post">
+                        <div class="help-input responsive">
+                            <span>Email</span><input class="help-bar" type="email" placeholder="Enter your email"/>
+                        </div>
+                        <div class="help-input responsive">
+                            <span>Password</span><input class="help-bar" type="password" placeholder="Enter your password"/>
+                        </div>
+                        <div class="login-input">
+                            <input class="btn login-btn" type="submit" value="SIGN IN">
+                            <a id="signup" onclick="closeLogin()" href="#">Don't have an account? Sign up now!</a>
+                        </div>
+                    </form>
+                </div>             
+            </div>
+        </section>
+
+        <section class="signup-modal">
+            <div id="signup-modal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span id="signup-close" class="close">&times;</span>
+
+                    <!--login form-->
+                    <p class="login-intro">Enter Your Credentials</p>
+                    <form class="help-form" action="" method="post">
+                        <div class="help-input responsive">
+                            <span>Email</span><input class="help-bar" type="email" placeholder="Enter your email"/>
+                        </div>
+                        <div class="help-input responsive">
+                            <span>Password</span><input class="help-bar" type="password" placeholder="Enter your password"/>
+                        </div>
+                        <div class="signup-input responsive">
+                            <span>Preference</span>
+                            <div class="signup-radios">
+                                <input class="signup-bar-radio" name="gender" type="radio" value="menswear"/><small>Menswear</small>
+                            </div>
+                            <div class="signup-radios">
+                                <input class="signup-bar-radio" name="gender" type="radio" value="woenswear"/><small>Womenswear</small>
+                            </div>
+                            <div class="signup-radios">
+                                <input class="signup-bar-radio" name="gender" type="radio" value="both"/><small>Both</small>
+                            </div>              
+                        </div>
+                        <div class="signup-input responsive">
+                            <span>Region</span>
+                            <div class="selectContainer">
+                                <select>
+                                    <option>Americas</option>
+                                    <option>Europe</option>
+                                    <option>Asia</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="signup-input responsive">
+                            <div class="signup-checkboxes">
+                                <input class="help-bar" type="checkbox"/>
+                                <small>Notifications on New Arrivals</small>
+                            </div>
+                            <div class="signup-checkboxes">
+                                <input class="help-bar" type="checkbox"/>  
+                                <small>Alerts on Latest Sales</small>
+                            </div>
+                        </div>
+                        <div class="signup-input">
+                            <input class="btn login-btn" type="submit" value="SIGN UP">
+                            <p id="signup" class="signup-footer">By Signing up you agree to our <a><strong>Privacy Policy</strong></a> and <a><strong>Terms and Servcices</strong></a>.
+                            </p>
+                        </div>
+                    </form>
+                </div>             
+            </div>
+        </section>
+
+        <footer>
+            <p>LAVINE Inc.</p>
+        </footer>
+    </div>
+    <!--wrapper ends-->
+</body>
+<script src="static/index.js" async></script>
+<script src="static/index_only.js" async></script>
+</html>

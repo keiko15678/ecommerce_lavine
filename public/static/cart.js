@@ -129,5 +129,20 @@ function updateTotal(){
     }
     document.getElementById('cart-subtotal').innerText = count.toFixed(2);
     localStorage.setItem('subtotal', count.toFixed(2));
+
+    if(count.toFixed(2) == 0.00){
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        checkoutBtn.addEventListener('click', (event) =>{
+            checkoutBtn.href = "#";
+            const popUp = document.getElementById('pop-up')
+            popUp.setAttribute('style', 'display:block;');
+                setTimeout(() =>{
+                    popUp.setAttribute('style', 'display:none;');
+                }, 1000);
+        })
+    }
+    else{
+        checkoutBtn.href = "checkout.html";
+    }
 }
 

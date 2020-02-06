@@ -40,7 +40,7 @@
         <form id="cart" action="cart.html" method="post">
             <section id="cart-checkout">
                 <p>Subtotal: $<span id="cart-subtotal"></span></p>
-                <a href="checkout.html" class="btn cart-btn">Checkout</a>
+                <a id="checkoutBtn" href="checkout.html" class="btn cart-btn">Checkout</a>
                 <a href="../index.html" class="btn cart-btn">Continue Shopping</a>
             </section>
 
@@ -144,6 +144,16 @@
             </div>
         </section>
         
+        <section>
+            <div id="pop-up" class="pop-up">
+                <span class="pop-up-helper"></span>
+                <div>
+                    <!--<div class="pop-up-close">&times;</div>-->
+                    <p>Your Cart is Empty!</p>
+                </div>
+            </div>
+        </section>
+
         <footer>
             <p>LAVINE Inc.</p>
         </footer>

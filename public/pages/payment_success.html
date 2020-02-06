@@ -4,82 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/style.css">   
     <script src="https://kit.fontawesome.com/ba841414d2.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Lavine</title>
 </head>
 <body>
-    <div class=wrapper>
+    <div class="wrapper">
         <nav class="navbar">
             <ul class="nav-list">
-                <li id="dropdown" class="nav-item" >
+                <li id="dropdown" class="nav-item">
                     <i id="dropdown-icon" class="fas fa-bars" onclick="showmenu()"></i>
                     <ul id="dropdown-menu" style="">
-                        <li class="dropdown-btn"><a href="../index.html">Home</a></li class="dropdown-btn"></li>
-                        <li class="dropdown-btn"><a href="#">New Arrivals</a></li>
-                        <li class="dropdown-btn" id="login-btn"><a href="#">Sign In</a></li>
+                        <li class="dropdown-btn" ><a href="../index.html">Home</a></liclass="menu-btn" ></li>
+                        <li class="dropdown-btn" ><a href="#">New Arrivals</a></li>
+                        <li class="dropdown-btn" id="login-btn"><a>Sign In</a></li>
                     </ul>
                 </li>
-                <li id="logo" class="nav-item"><a href="#">Lavine</a href></li>
+                <li id="logo" class="nav-item"><a>Lavine</a href></li>
                 <li id="search" class="nav-item"><a href="#"><i class="fas fa-search"></i></a></li>
                 <li id="cart" class="nav-item"><a href="cart.html"><i class="fas fa-shopping-cart"></a></i></li>
             </ul>
         </nav>
-
-        <div id="sales" class="sales">
-            Checkout our latest sales <a href="#"><fonts style="color:yellow;">here</fonts></a>.
+        <h1 style="margin: 30px 0px 30px 10px">Payment Success</h1>
+        <div>
+            <a id="return-home" class="btn cart-btn" href="../index.html">Return to Home</a>
         </div>
-
-
-        <header class="cards-header">
-            <h1>Checkout</h1>
-        </header>
         
-        <!--Checkout form-->
-        <form id="checkout" action="checkout.html" method="post">
-            <section id="cart-checkout">
-                <p>Subtotal: $<span id="checkout-subtotal"></span></p>
-                <!--<input type="button" name="submit" value="Confirm" class="btn cart-btn">-->
-                <a href="../index.html" class="btn cart-btn">Continue Shopping</a>
-            </section>           
-        </form>
-
-        <header class="cards-header">
-            <h2>Payment Methods</h2>
-        </header>
-
-        <section class="payment-methods">
-            <form id="paypal-form" action="/pay/paypal" method="post" class="payment-methods-child">
-                <input type="hidden" name="subtotalforPaypal" />
-                <input type="hidden" name="itemsforPaypal"/>
-
-                <div>
-                    <i class="fab fa-paypal fa-2x"></i>
-                    <button id="paypal-btn" class="payment-btn" value="Paypal">Paypal</button>    
-                </div>
-            </form>
-
-            <div id="stripe-form" action="/pay/stripe" method="post" class="payment-methods-child">
-                <input type="hidden" name="subtotalforStripe" />
-                <input type="hidden" name="itemsforStripe"/>
-                <div>
-                    <i class="far fa-credit-card fa-2x"></i>
-                    <input type="submit" id="stripe-btn" class="payment-btn" value="Stripe" />    
-                </div>
-            </div>
-
-            <form id="credit-form" action="" method="post" class="payment-methods-child">
-                <input type="hidden" name="cmd" value="_cart" />
-                <input type="hidden" name="upload" value="1" />
-                <input type="hidden" name="business" value="" />
-                <input type="hidden" name="currency_code" value="" />
-                <div>
-                    <i class="far fa-credit-card fa-2x"></i>
-                    <input type="submit" id="paypal-btn" class="payment-btn" value="Card" />    
-                </div>
-            </form>
-        </section>
 
         <section class="login-modal">
             <div id="login-modal" class="modal">
@@ -168,8 +118,7 @@
     </div>
     <!--wrapper ends-->
 </body>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://js.stripe.com/v3/"></script>
 <script src="../static/index.js" async></script>
-<script src="../static/checkout.js" async></script>
+<script src="../static/payment_success.js" async></script>
+<!-- <script src="static/index_only.js" async></script> -->
 </html>

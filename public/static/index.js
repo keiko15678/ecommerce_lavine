@@ -1,15 +1,14 @@
-function showmenu(){
-    let nav = document.getElementById("dropdown")
-    let menu = document.getElementById("dropdown-menu")
-    let sales = document.getElementById("sales")
-    let cond = menu.getAttribute("style")
+const nav = document.getElementById("dropdown");
+nav.addEventListener('click', event =>{ 
+    let menu = document.getElementById("dropdown-menu");
+    const cond = menu.getAttribute("style");
     if(cond.includes("block")){        
-        menu.setAttribute("style", "display: none;")
+        menu.setAttribute("style", "display: none;");
         // sales.setAttribute("style", "display: block;")
     }
     else{
-        menu.setAttribute("style", "display: block;")
+        menu.setAttribute("style", "display: block;");
         // sales.setAttribute("style", "display: none;")
     }
-}
+})
 

@@ -51,7 +51,7 @@ router.post('/pay/stripe', (req, res) =>{
         stripeOrder.line_items[i] = stripeItem;
     }
     stripe.checkout.sessions.create(stripeOrder, (err, session) =>{
-        res.send(session.id)
+        res.send(session.id);
     });
 })
 

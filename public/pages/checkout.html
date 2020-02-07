@@ -16,9 +16,9 @@
                 <li id="dropdown" class="nav-item" >
                     <i id="dropdown-icon" class="fas fa-bars" onclick="showmenu()"></i>
                     <ul id="dropdown-menu" style="">
-                        <li class="dropdown-btn"><a href="../index.html">Home</a></li class="dropdown-btn"></li>
+                        <li class="dropdown-btn"><a href="/">Home</a></li class="dropdown-btn"></li>
                         <li class="dropdown-btn"><a href="#">New Arrivals</a></li>
-                        <li class="dropdown-btn" id="login-btn"><a href="#">Sign In</a></li>
+                        <!-- <li class="dropdown-btn" id="login-btn"><a href="/login">Sign In</a></li> -->
                     </ul>
                 </li>
                 <li id="logo" class="nav-item"><a href="#">Lavine</a href></li>
@@ -69,7 +69,7 @@
                 </div>
             </div>
 
-            <form id="credit-form" action="" method="post" class="payment-methods-child">
+            <!-- <form id="credit-form" action="" method="post" class="payment-methods-child">
                 <input type="hidden" name="cmd" value="_cart" />
                 <input type="hidden" name="upload" value="1" />
                 <input type="hidden" name="business" value="" />
@@ -78,93 +78,17 @@
                     <i class="far fa-credit-card fa-2x"></i>
                     <input type="submit" id="paypal-btn" class="payment-btn" value="Card" />    
                 </div>
-            </form>
+            </form> -->
         </section>
 
-        <section class="login-modal">
-            <div id="login-modal" class="modal">
-                <!-- Modal content -->
-                <div class="modal-content">
-                  <span id="login-close" class="close">&times;</span>
-
-                    <!--login form-->
-                    <p class="login-intro">Enter Your Credentials</p>
-                    <form class="help-form" action="" method="post">
-                        <div class="help-input responsive">
-                            <span>Email</span><input class="help-bar" type="email" placeholder="Enter your email"/>
-                        </div>
-                        <div class="help-input responsive">
-                            <span>Password</span><input class="help-bar" type="password" placeholder="Enter your password"/>
-                        </div>
-                        <div class="login-input">
-                            <input class="btn login-btn" type="submit" value="SIGN IN">
-                            <a id="signup" onclick="closeLogin()" href="#">Don't have an account? Sign up now!</a>
-                        </div>
-                    </form>
-                </div>             
+        <section>
+            <div id="pop-up" class="pop-up">
+                <span class="pop-up-helper"></span>
+                <div>
+                    <p id="pop-up-content"></p>
+                </div>
             </div>
         </section>
-
-        <section class="signup-modal">
-            <div id="signup-modal" class="modal">
-                <!-- Modal content -->
-                <div class="modal-content">
-                  <span id="signup-close" class="close">&times;</span>
-
-                    <!--login form-->
-                    <p class="login-intro">Enter Your Credentials</p>
-                    <form class="help-form" action="" method="post">
-                        <div class="help-input responsive">
-                            <span>Email</span><input class="help-bar" type="email" placeholder="Enter your email"/>
-                        </div>
-                        <div class="help-input responsive">
-                            <span>Password</span><input class="help-bar" type="password" placeholder="Enter your password"/>
-                        </div>
-                        <div class="signup-input responsive">
-                            <span>Preference</span>
-                            <div class="signup-radios">
-                                <input class="signup-bar-radio" name="gender" type="radio" value="menswear"/><small>Menswear</small>
-                            </div>
-                            <div class="signup-radios">
-                                <input class="signup-bar-radio" name="gender" type="radio" value="woenswear"/><small>Womenswear</small>
-                            </div>
-                            <div class="signup-radios">
-                                <input class="signup-bar-radio" name="gender" type="radio" value="both"/><small>Both</small>
-                            </div>              
-                        </div>
-                        <div class="signup-input responsive">
-                            <span>Region</span>
-                            <div class="selectContainer">
-                                <select>
-                                    <option>Americas</option>
-                                    <option>Europe</option>
-                                    <option>Asia</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="signup-input responsive">
-                            <div class="signup-checkboxes">
-                                <input class="help-bar" type="checkbox"/>
-                                <small>Notifications on New Arrivals</small>
-                            </div>
-                            <div class="signup-checkboxes">
-                                <input class="help-bar" type="checkbox"/>  
-                                <small>Alerts on Latest Sales</small>
-                            </div>
-                        </div>
-                        <div class="signup-input">
-                            <input class="btn login-btn" type="submit" value="SIGN UP">
-                            <p id="signup" class="signup-footer">By Signing up you agree to our <a><strong>Privacy Policy</strong></a> and <a><strong>Terms and Servcices</strong></a>.
-                            </p>
-                        </div>
-                    </form>
-                </div>             
-            </div>
-        </section>
-
-        <footer>
-            <p>LAVINE Inc.</p>
-        </footer>
     </div>
     <!--wrapper ends-->
 </body>

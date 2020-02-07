@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="static/style.css">   
+    <script src="https://kit.fontawesome.com/ba841414d2.js" crossorigin="anonymous"></script>
+    <title>Lavine</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li id="dropdown" class="nav-item">
+                    <i id="dropdown-icon" class="fas fa-bars" onclick="showmenu()"></i>
+                    <ul id="dropdown-menu" style="">
+                        <li class="dropdown-btn" ><a href="/">Home</a></liclass="menu-btn" ></li>
+                        <li class="dropdown-btn" ><a href="#">New Arrivals</a></li>
+                        <!-- <li class="dropdown-btn" id="login-btn"><a href="/login">Sign In</a></li> -->
+                    </ul>
+                </li>
+                <li id="logo" class="nav-item"><a>Lavine</a href></li>
+                <li id="search" class="nav-item"><a href="#"><i class="fas fa-search"></i></a></li>
+                <li id="cart" class="nav-item"><a href="pages/cart.html"><i class="fas fa-shopping-cart"></a></i></li>
+            </ul>
+        </nav>
+
+        <section>
+            <div id="signup-modal">
+                <div class="modal-content">
+                    <p class="login-intro">Enter Your Credentials</p>
+                    <form id="register" class="help-form" action="/register" method="post">
+                        <div class="help-input responsive names">
+                            <span>Email</span><input id="email" class="help-bar" type="email" name="email" placeholder="Enter your Email"/>
+                        </div>
+                        <div class="help-input responsive names">
+                            <span>Password</span><input id="password" class="help-bar" type="password" name="password" placeholder="Enter your Password"/>
+                        </div>
+                        <div class="help-input responsive names">
+                            <span>First Name</span><input id="firstName" class="help-bar" type="text" name="firstName" placeholder="Enter your First name"/>
+                        </div>
+                        <div class="help-input responsive names">
+                            <span>Last Name</span><input id="lastName" class="help-bar" type="text" name="lastName" placeholder="Enter your Last name"/>
+                        </div>
+                        <div class="help-input responsive address">
+                            <span>Shipping Address</span><input id="address" class="help-bar" type="text" name="address" placeholder="Enter your Address"/>
+                        </div>
+                        <div class="help-input responsive address">
+                            <span>State</span><input id="state" class="help-bar" type="text" name="state" placeholder="Enter your State"/>
+                        </div>
+                        <div class="help-input responsive postal">
+                            <span>Postal Code</span><input id="postal" class="help-bar" type="text" name="postal" placeholder="Enter your Postal Code"/>
+                        </div>
+                        <div class="signup-input responsive">
+                            <span>Preference</span>
+                            <div class="signup-radios">
+                                <input class="signup-bar-radio" name="gender" type="radio" value="menswear"/><small>Menswear</small>
+                            </div>
+                            <div class="signup-radios">
+                                <input class="signup-bar-radio" name="gender" type="radio" value="womenswear"/><small>Womenswear</small>
+                            </div>
+                            <div class="signup-radios">
+                                <input class="signup-bar-radio" name="gender" type="radio" value="both"/><small>Both</small>
+                            </div>
+                        </div>
+                        <div class="signup-input responsive">
+                            <span>Region</span>
+                            <div class="selectContainer">
+                                <select id="region" name="region">
+                                    <option>Americas</option>
+                                    <option>Europe</option>
+                                    <option>Asia</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="signup-input responsive">
+                            <div class="signup-checkboxes">
+                                <input class="help-bar" type="checkbox" id="notif" name="notif" />
+                                <small>Notifications on New Arrivals</small>
+                            </div>
+                            <div class="signup-checkboxes">
+                                <input class="help-bar" type="checkbox" id="alert" name="alert"/>  
+                                <small>Alerts on Latest Sales</small>
+                            </div>
+                        </div>
+                        <div class="signup-input">
+                            <input class="btn login-btn" type="submit" value="SIGN UP">
+                            <p id="signup" class="signup-footer">By Signing up you agree to our <a><strong>Privacy Policy</strong></a> and <a><strong>Terms and Servcices</strong></a>.
+                            </p>
+                        </div>
+                    </form>
+                </div>             
+            </div>
+        </section>
+
+        <section>
+            <div id="pop-up" class="pop-up">
+                <span class="pop-up-helper"></span>
+                <div id="pop-window">
+                    <p id="pop-up-content"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- <footer>
+            <p>LAVINE Inc.</p>
+        </footer> -->
+    </div>
+    <!--wrapper ends-->
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="static/index.js" async></script>
+<script src="static/register.js" async></script>
+</html>

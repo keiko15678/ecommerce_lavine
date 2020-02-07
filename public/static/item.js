@@ -84,6 +84,8 @@ function attachFunctions(){
                 toArr.push(item);
                 const toJSON = JSON.stringify(toArr);
                 localStorage.setItem('purchase', toJSON);
+                const popWindow = document.getElementById('pop-window');
+                    popWindow.setAttribute('style', 'background: #e8fcde; border: 2px solid #e8fcde; color: #42c700;');
                 popUp.setAttribute('style', 'display:block;');
                 setTimeout(() =>{
                     popUp.setAttribute('style', 'display:none;');

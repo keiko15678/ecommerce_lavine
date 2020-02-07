@@ -13,3 +13,7 @@ function modalActivate(modalName, closeName, btnName){
         modal.setAttribute('style', 'display:none;')
     }
 }
+
+document.getElementById('signup-form').addEventListener('submit', event =>{
+    
+})

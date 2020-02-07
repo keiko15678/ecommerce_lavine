@@ -520,7 +520,9 @@ footer p{
     vertical-align:middle;
 }
 .pop-up > div {
-    background-color: #fff;
+    background-color: #fcfcde;
+    color: #d4c500; 
+    /* #eded00 */
     box-shadow: 10px 10px 60px var(--dark);
     display: inline-block;
     height: auto;
@@ -531,13 +533,13 @@ footer p{
     width: 60%;
     position: relative;
     border-radius: 8px;
-    border: 5px solid var(--dark);
+    border: 2px solid #fcfcde;
     /* padding: 15px 5%; */
-    font-weight: 600;
-    opacity: 0.9;
+    font-weight: 800;
+    opacity: 1;
 }
 .pop-up-close {
-    background-color: #fff;
+    background-color: #faf891;
     border: 3px solid #999;
     border-radius: 50px;
     cursor: pointer;
@@ -721,6 +723,7 @@ footer p{
 #return-home{
     margin: 10px;
 }
+
 @media(min-width: 350px){
     /* Item Details */
     .item-slideshow{
@@ -817,7 +820,7 @@ footer p{
         padding: 10px 252px 50px 10px;
         margin-top: 30px;
 
-    }
+    } 
     
     .help-input span{
         display: inline;
@@ -826,10 +829,11 @@ footer p{
     
     .help-input input{
         display: inline;
-    }
+    } 
     
     .responsive{
         display: inline-block;
+        margin-bottom: 20px;
     }
 
     /* login modal */
@@ -863,6 +867,23 @@ footer p{
 
     .signup-input .signup-radios{
         display: inline;
+    }
+
+    /* login page */
+    .loginContainer{
+        text-align: center;
+    }
+    .modal-content {
+    margin: 5% auto; /* 15% from the top and centered */
+    }
+    .names {
+        display: block;
+    }
+    .address{
+        display: block;
+    }
+    .postal{
+        display: block;
     }
 
 }

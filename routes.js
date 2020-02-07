@@ -17,7 +17,7 @@ paypal.configure({
   });
 
 //pay with stripe
-router.post('/pay/stripe',(req, res) =>{
+router.post('/pay/stripe', (req, res) =>{
     const subtotal = req.body.subtotal;
     const items = req.body.item;
     const jsonParse = JSON.parse(items);
@@ -54,11 +54,6 @@ router.post('/pay/stripe',(req, res) =>{
         res.send(session.id)
     });
 })
-
-//stripe success
-// router.get('/pay/stripe/success',(req, res) =>{
-//     res.redirect('/pages/payment_success.html');
-// })
 
 // stripe canceled
 router.get('/pay/stripe/cancel',(req, res) =>{
@@ -177,23 +172,6 @@ router.get('/pay/paypal/cancel', (req, res) =>{
     res.redirect('/pages/checkout.html');
 })
 
-
-
-// add new order to db
-// router.post('/pay', (req, res) =>{
-//     const newOrder = new Order({
-//         detail: req.body.storageItem,
-//         subtotal: req.body.subtotal,
-//         paid: req.body.paid
-//     })
-//     newOrder.save()
-//         .then(order => res.json(order));
-// })
-
-
-
-
-
 //get all items
 router.get('/items', (req, res) => {
     Item.find()
@@ -240,6 +218,12 @@ router.post('/items', (req, res) => {
     })
     item.save()
         .then(item => res.json(item))
+})
+
+
+//main page
+router.get('/', (req, res) =>{
+    res.sendFile(__dirname + "/public/index.html");
 })
 
 module.exports = router

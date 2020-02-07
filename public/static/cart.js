@@ -142,7 +142,7 @@ function updateTotal(){
         })
     }
     else{
-        checkoutBtn.href = "checkout.html";
+        // checkoutBtn.href = "checkout.html";
     }
 }
 

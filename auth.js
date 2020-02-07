@@ -7,10 +7,23 @@ const { ensureAuthenticated } = require('./config/authenticate.js');
 const User = require('./models/users_model.js');
 const Subscribe = require('./models/subscribe_model.js');
 
+router.get('/dashboard', ensureAuthenticated, (req,res) =>{
+    res.sendFile(__dirname + '/public/pages/dashboard.html');
+})
+
+//cart route
+router.get('/cart', (req, res) =>{
+    res.sendFile(__dirname + '/public/pages/cart.html');
+})
+
+//shop route
+router.get('/men', (req, res) =>{
+    res.sendFile(__dirname + '/public/pages/shop-men.html');
+})
+
 //subscribe handle
 router.post('/subscribe', (req, res) =>{
     const { email, chooseWear } = req.body;
-    console.log(email, chooseWear)
     const subscribe = new Subscribe({
         email,
         preference: chooseWear
@@ -55,10 +68,13 @@ router.get('/checkout', ensureAuthenticated, (req, res) =>{
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
         successRedirect: '/checkout',
-        failureRedirect: '/cart'
+        failureRedirect: '/loginFail'
     })(req, res, next);
 });
 
+router.get('/loginFail', (req, res) =>{
+    res.sendFile(__dirname + "/public/pages/login_fail.html")
+})
 //register handle
 router.post('/register',(req, res) =>{
     const { email, password, firstName, lastName, address, state, postal } = req.body;

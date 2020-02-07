@@ -725,6 +725,15 @@ footer p{
     margin: 10px;
 }
 
+/* dashboard */
+.dashboard-table{
+    width: 100%
+}
+
+#dashboard-edit-btn{
+    margin-top: 10px;
+}
+
 @media(min-width: 350px){
     /* Item Details */
     .item-slideshow{

@@ -1,3 +1,9 @@
+if(document.readyState == 'loading'){
+    document.addEventListener('DOMContentLoaded', ready)
+} else{
+    ready()
+}
+function ready(){
 axios.get('/items')
     .then((response) =>{
         const items = response.data;
@@ -26,7 +32,7 @@ axios.get('/items')
     .catch(() => {
         console.log('error');
     });
-
+}
 function attachCartFunction(){
     let addToCartBtn = document.getElementsByClassName('add-to-cart');
     let price = document.getElementsByClassName('price-tag');

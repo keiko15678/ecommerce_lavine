@@ -5,8 +5,9 @@ const mongoose = require("mongoose");
 const path = require('path');
 const db = require('./config/keys.js').mongoURI;
 
-const routes = require("./routes.js");
+const routes = require("./payments.js");
 const authRoutes = require("./auth.js");
+const cmsRoutes = require("./cms.js");
 
 //static front-end folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -14,12 +15,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 const session = require('express-session');
 const passport = require('passport');
 
-//passport config
-require('./config/passport.js')(passport);
-
 //bodyParser middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+//use this route without passport
+app.use(cmsRoutes);
+
+
+//passport config
+require('./config/passport.js')(passport);
+
+
 
 //express session
 app.use(session({
@@ -35,6 +42,7 @@ app.use(passport.session());
 //routes
 app.use(routes);
 app.use(authRoutes);
+
 
 //mongoDB connection
 mongoose.connect(process.env.MONGODB_URI || db, {

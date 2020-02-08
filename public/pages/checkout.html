@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="../static/style.css">
     <script src="https://kit.fontawesome.com/ba841414d2.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Lavine</title>
 </head>
 <body>
     <div class=wrapper>
@@ -41,8 +41,9 @@
             <section id="cart-checkout">
                 <p>Subtotal: $<span id="checkout-subtotal"></span></p>
                 <!--<input type="button" name="submit" value="Confirm" class="btn cart-btn">-->
-                <a href="/" class="btn cart-btn">Continue Shopping</a>
-                <a href="/dashboard" class="btn cart-btn">Your Dashboard</a>
+                <a href="/cart" class="btn cart-btn">Back to Cart</a>
+                <a href="/dashboard" class="btn cart-btn">Edit Info</a>
+                <a href="/logout" class="btn cart-btn">Logout</a>
             </section>           
         </form>
 
@@ -70,16 +71,16 @@
                 </div>
             </div>
 
-            <!-- <form id="credit-form" action="" method="post" class="payment-methods-child">
+            <form id="credit-form" class="payment-methods-child">
                 <input type="hidden" name="cmd" value="_cart" />
                 <input type="hidden" name="upload" value="1" />
                 <input type="hidden" name="business" value="" />
                 <input type="hidden" name="currency_code" value="" />
                 <div>
                     <i class="far fa-credit-card fa-2x"></i>
-                    <input type="submit" id="paypal-btn" class="payment-btn" value="Card" />    
+                    <input type="submit" id="credit-btn" class="payment-btn" value="Card" />    
                 </div>
-            </form> -->
+            </form>
         </section>
 
         <section>

@@ -6,9 +6,11 @@ const userSchema = new Schema({
   password: { type: String , required: true},
   firstName: { type: String},
   lastName: { type: String },
-  address: { type: String, required: true  },
-  state: { type: String, required: true },
-  postal: { type: String, required: true },
+  address: { type: String },
+  city: { type: String },
+  state: { type: String },
+  postal: { type: String },
+  country: { type: String },
   preference: { type: String },
   dateAdded: { type: Date, default: Date.now }
 });

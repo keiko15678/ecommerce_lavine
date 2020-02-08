@@ -726,12 +726,28 @@ footer p{
 }
 
 /* dashboard */
+
+.table-container{
+    width: 100%;
+}
 .dashboard-table{
-    width: 100%
+    width: 100%;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    line-height: 2em;
+    font-size: 12px;
 }
 
 #dashboard-edit-btn{
     margin-top: 10px;
+}
+
+#return-checkout{
+    margin-left: 20px;
+}
+
+.dashboard-table td{
+    /* border-right: 1px solid var(--dark) */
 }
 
 @media(min-width: 350px){
@@ -896,6 +912,13 @@ footer p{
         display: block;
     }
 
+    .table-container{
+        width: 50%;
+    }
+
+    .dashboard-table{
+        font-size: 15px;
+    }
 }
 /* media ipadpro+ */
 @media(min-width: 1200px){

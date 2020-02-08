@@ -7,6 +7,13 @@ const { ensureAuthenticated } = require('./config/authenticate.js');
 const User = require('./models/users_model.js');
 const Subscribe = require('./models/subscribe_model.js');
 
+//logout
+router.get('/logout', (req, res) =>{
+    req.logout();
+    res.redirect('/')
+})
+
+//dashboard
 router.get('/dashboard', ensureAuthenticated, (req,res) =>{
     res.sendFile(__dirname + '/public/pages/dashboard.html');
 })
@@ -14,11 +21,6 @@ router.get('/dashboard', ensureAuthenticated, (req,res) =>{
 //cart route
 router.get('/cart', (req, res) =>{
     res.sendFile(__dirname + '/public/pages/cart.html');
-})
-
-//shop route
-router.get('/men', (req, res) =>{
-    res.sendFile(__dirname + '/public/pages/shop-men.html');
 })
 
 //subscribe handle
@@ -72,15 +74,18 @@ router.post('/login', (req, res, next) => {
     })(req, res, next);
 });
 
+
+//login failure redirect
 router.get('/loginFail', (req, res) =>{
     res.sendFile(__dirname + "/public/pages/login_fail.html")
 })
+
 //register handle
 router.post('/register',(req, res) =>{
-    const { email, password, firstName, lastName, address, state, postal } = req.body;
+    const { email, password, firstName, lastName, address, city, state, country, postal } = req.body;
     let errors = [];
     //check required fields
-    if(!email || !password || !firstName || !lastName || !address || !state || !postal){
+    if(!email || !password || !firstName || !lastName || !address || !city || !state || !postal || !country){
         errors.push('Please fill in all fields. ');
     }
     // check password
@@ -99,7 +104,7 @@ router.post('/register',(req, res) =>{
                     errors.push('Email is already registered.');
                 } else{
                     let newUser = new User({
-                        email, password, firstName, lastName, address, state, postal            
+                        email, password, firstName, lastName, address, city, state, postal, country           
                     });
                     //hash password
                     bcrypt.genSalt(10, (err, salt) =>{

@@ -27,65 +27,66 @@
         </nav>
         
         <h1 style="margin: 30px 0px 30px 10px">Welcome, <span id="user-name"></span>!</h1>
-        <img src="" style="width: 70%;"/>
-        <h2 style="margin: 30px 0px 30px 10px; font-weight: 200;">Your Info</h2>
-
-        <!-- <h4 style="margin: 30px 0px 30px 10px; font-weight: 200;">Your Name</h4>
-        <ul>
-            <li>First Name</li>
-            <li>Last Name</li>
-            
-        </ul>
-        <h4 style="margin: 30px 0px 30px 10px; font-weight: 200;">Shipping Address</h4>
-        <ul>
-            <li>Address</li>
-            <li>State</li>
-            <li>Zipcode</li>
-
-        </ul> -->
         <h3 style="margin: 30px 0px 20px 10px; font-weight: 200;">Personal Info</h3>
-        <table class="dashboard-table">
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>First Name</td>
-                <td id="firstName"></td>
-                <td>50<button id="edit-firstName">Edit</button></td>
-            </tr>
-            <tr>
-                <td>Last Name</td>
-                <td id="lastName"></td>
-                <td>94</td>
-            </tr>
-          </table>
-          <h3 style="margin: 30px 0px 20px 10px; font-weight: 200;">Shipping Address</h3>
-          <table class="dashboard-table">
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>Address</td>
-                <td id="address"></td>
-                <td>94</td>
-            </tr>
-            <tr>
-                <td>State</td>
-                <td id="state"></td>
-                <td>94</td>
-            </tr>
-            <tr>
-                <td>Zipcode</td>
-                <td id="zipcode"></td>
-                <td>94</td>
-            </tr>
-          </table>
+        <div class="table-container">
+            <table class="dashboard-table">
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td id="email"></td>
+                    <td><button id="edit-email" class="btn cart-btn">Edit</button></td>
+                </tr>
+                <tr>
+                    <td>First Name</td>
+                    <td id="firstName"></td>
+                    <td><button id="edit-firstName" class="btn cart-btn">Edit</button></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td id="lastName"></td>
+                    <td><button id="edit-lastName" class="btn cart-btn">Edit</button></td>
+                </tr>                
+            </table>
+            <h3 style="margin: 30px 0px 20px 10px; font-weight: 200;">Shipping Address</h3>
+            <table class="dashboard-table">
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td id="address"></td>
+                    <td><button id="edit-address" class="btn cart-btn">Edit</button></td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td id="city"></td>
+                    <td><button id="edit-city" class="btn cart-btn">Edit</button></td>
+                </tr>
+                <tr>
+                    <td>State</td>
+                    <td id="state"></td>
+                    <td><button id="edit-state" class="btn cart-btn">Edit</button></td>
+                </tr>
+                <tr>
+                    <td>Zipcode</td>
+                    <td id="zipcode"></td>
+                    <td><button id="edit-zipcode" class="btn cart-btn">Edit</button></td>
+                </tr>
+                <tr>
+                    <td>Country</td>
+                    <td id="country"></td>
+                    <td><button id="edit-country" class="btn cart-btn">Edit</button></td>
+                </tr>
+            </table>
+        </div>
         <div>
-            <a id="return-home" class="btn cart-btn" href="/checkout">Return to Checkout</a>
+            <a id="return-checkout" class="btn cart-btn" href="/checkout">Return to Checkout</a>
         </div>
 
         <section class="help-modal">
@@ -99,7 +100,7 @@
                     <div class="help-input responsive">
                         <span id="label-name">Edit Your </span><input id="edit" class="help-bar" type="text" name="data" placeholder="Enter here"/>
                     </div>
-                    <input id="dataType" type="hidden" name="dataType" placeholder="Enter here"/>
+                    <input id="updateField" type="hidden" name="updateField" placeholder="Enter here"/>
                     <div class="help-input" id="dashboard-edit-btn">
                         <input class="btn" type="submit" value="Submit">                       
                     </div>

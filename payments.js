@@ -5,7 +5,6 @@ const stripeSecretKey = require('./config/keys.js').stripeSecretKey;
 const stripe = require('stripe')(stripeSecretKey);
 
 const User = require('./models/users_model.js');
-const Item = require('./models/items_model.js');
 const Order = require('./models/orders_model.js');
 
 const paypalReturnUrl = "http://localhost:8080/pay/paypal/success";
@@ -200,54 +199,6 @@ router.get('/pay/paypal/success', (req, res) =>{
     })
 })
 
-//get all items
-router.get('/items', (req, res) => {
-    Item.find()
-        .sort({ date: 1 })
-        .then(items => res.json(items))
-})
-
-//get one item by id
-router.get('/items/:id', (req, res) => {
-    const id = req.params.id
-    Item.findById(id)
-        .then(item => res.json(item))
-})
-
-//delete an item by id
-router.delete('/items/:id', (req, res) => {
-    const id = req.params.id
-    Item.findByIdAndRemove(id)
-        .then(item => res.json(item))
-})
-
-//delete all
-router.delete('/items', (req, res) => {
-    Item.remove()
-        .then(item => res.json(item))
-})
-
-//add an item
-router.post('/items', (req, res) => {
-    const item = new Item({
-        name : 'puma', //req.body.name
-        price: '35.99', //req.body.price
-        imgURL: 'https://www.adidas.com.ph/dw/image/v2/bcbs_prd/on/demandware.static/-/Sites-adidas-products/default/dw3aa60fd2/zoom/F36199_01_standard.jpg?sh=320&strip=false&sw=320', //req.body.imgURL
-        type: 'shoes',
-        gender: 'male',
-        describe: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem, minus!',
-        productDetails: [],
-        delivery: '2 day shipping',
-        specifications: 'real leather',
-        reviews: ['great','awesome'],
-        questions: ['question','answer'],
-        slideshow: ['https://www.adidas.com.ph/dw/image/v2/bcbs_prd/on/demandware.static/-/Sites-adidas-products/default/dw3aa60fd2/zoom/F36199_01_standard.jpg?sh=320&strip=false&sw=320'],
-        rating: ''
-    })
-    item.save()
-        .then(item => res.json(item))
-})
-
 //get user info
 router.get('/getUserInfo', (req,res) =>{
     User.findById(req.user._id)
@@ -257,10 +208,38 @@ router.get('/getUserInfo', (req,res) =>{
 
 //change user info
 router.post('/changeUserInfo', (req,res) => {
-    const { data, dataType } = req.body;
-    const updateParam = { dataType: data }
-    User.findOneAndUpdate({ _id: req.user._id}, { $inc: updateParam }, { new: true})
-        .then(user => res.json(user))
+    const { data, updateField } = req.body;
+    const filter = { _id: req.user._id };
+    let field = {};
+    if(updateField === "firstName"){
+        field = { firstName: data }
+    } else if(updateField === "lastName"){
+        field = { lastName: data }
+    } else if(updateField === "address"){
+        field = { address: data }
+    } else if(updateField === "state"){
+        field = { state: data }
+    } else if(updateField === "postal"){
+        field = { postal: data }
+    } else if(updateField === "email"){
+        field = { email: data }
+    } else if(updateField === "city"){
+        field = { city: data }
+    } else if(updateField === "country"){
+        field = { country: data }
+    } else{
+        res.redirect('/dashboard');
+    }
+    console.log(field);
+    User.findOneAndUpdate(filter, field, { useFindAndModify: false, new: true })
+        .then(updatedUser => {
+            if(updatedUser){
+                res.redirect('/dashboard');
+            }
+            else{
+                res.redirect('/dashboard');
+            }
+        })
         .catch(err => res.redirect('/login'));
 })
 

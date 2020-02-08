@@ -8,7 +8,9 @@ document.forms['register'].addEventListener('submit', (event) => {
         firstName: document.getElementById('firstName').value,
         lastName: document.getElementById('lastName').value,
         address: document.getElementById('address').value,
+        city: document.getElementById('city').value,
         state: document.getElementById('state').value,
+        country: document.getElementById('country').value,
         postal: document.getElementById('postal').value
     };
     axios.post('/register', formData)

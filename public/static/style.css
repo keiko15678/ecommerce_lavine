@@ -36,7 +36,7 @@ body{
 }
 
 .dropdown-btn a:hover{
-    color: var(--dark);
+    color: var(--btn-darker);
 }
 
 .wrapper{
@@ -59,9 +59,8 @@ body{
 .nav-list .nav-item{
     display: block;
     text-align: center;
-    color: var(--dark);
     font-size: 1.1rem;
-    color: #000000;
+    color: var(--btn);
 }
 #dropdown{
     text-align: left;
@@ -478,9 +477,9 @@ footer p{
 }
 
 .payment-methods-child {
-    border-left: 1px solid var(--light);
+    border-left: 1px solid var(--btn-darker);
     padding: 10px;
-    color: var(--dark);
+    color: var(--btn-darker);
     width: 100%;
     box-sizing: border-box;
 }
@@ -496,7 +495,7 @@ footer p{
 }
 
 .payment-btn{
-    color: var(--dark);
+    color: var(--btn-darker);
     font-weight: 600;
     /* color: #ffffff; */
     background: #ffffff;
@@ -667,7 +666,7 @@ footer p{
 }
 
 .login-input a:hover,:visited{
-    color: var(--dark)
+    color: var(--btn-darker);
 }
 
 /* sign up modal */

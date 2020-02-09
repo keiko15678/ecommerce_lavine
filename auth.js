@@ -26,8 +26,10 @@ router.post('/sendEmail', function (req, res) {
         body: message
     };
     transporter.sendMail(mailOptions, (err, info) => {
-        if (err) throw err;
-    });
+        if (err) {
+            return console.log(error);
+        }
+    })
     res.writeHead(301, { Location: 'pages/inquiry_success.html' });
     res.end();
 });

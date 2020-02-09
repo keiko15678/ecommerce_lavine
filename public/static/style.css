@@ -17,13 +17,6 @@ body{
     margin: 0px 0px 10px 0px;
 }
 
-.btn{
-    background: var(--btn);
-    border: 1px solid var(--btn);
-    border-radius: 5%;
-    color: #fff;
-}
-
 .btn:hover{
     background: var(--btn-darker);
     border: 1px solid var(--btn-darker);
@@ -1074,4 +1067,11 @@ footer p{
         text-align: left;
         line-height: 1.5em;
     }
+}
+
+.btn{
+    background: var(--btn);
+    border: 1px solid var(--btn);
+    border-radius: 5%;
+    color: #fff;
 }

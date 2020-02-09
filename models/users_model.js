@@ -12,6 +12,7 @@ const userSchema = new Schema({
   postal: { type: String },
   country: { type: String },
   preference: { type: String },
+  status: { type: Boolean },
   dateAdded: { type: Date, default: Date.now }
 });
 

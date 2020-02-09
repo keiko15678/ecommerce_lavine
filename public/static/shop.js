@@ -4,34 +4,34 @@ if(document.readyState == 'loading'){
     ready()
 }
 function ready(){
-axios.get('/items')
-    .then((response) =>{
-        const items = response.data;
-        const maleOnly = items.filter(item => {
-             return item.gender === "male"           
+    axios.get('/items/active')
+        .then((response) =>{
+            const items = response.data;
+            const maleOnly = items.filter(item => {
+                return item.gender === "male"           
+            });
+            const femaleOnly = items.filter(item => {
+                return item.gender !== "male"           
         });
-        const femaleOnly = items.filter(item => {
-            return item.gender !== "male"           
-       });
-        if(window.location.href.includes('shop-men')){
-            maleOnly.forEach(element => {
-                const { _id, name, price, imgURL, describe} = element;
-                createItemCard(_id, name, imgURL, price, describe);
-                detectInCartOnload(name, _id)
-            });
-        }
-        else{
-            femaleOnly.forEach(element => {
-                const { _id, name, price, imgURL, describe} = element;
-                createItemCard(_id, name, imgURL, price, describe);
-            });
-        }
-        attachCartFunction()
-        attachDetailsFunction()
-    })
-    .catch(() => {
-        console.log('error');
-    });
+            if(window.location.href.includes('women')){
+                femaleOnly.forEach(element => {
+                    const { _id, name, price, imgURL, describe} = element;
+                    createItemCard(_id, name, imgURL, price, describe);
+                    detectInCartOnload(name, _id)
+                });
+            }
+            else{
+                maleOnly.forEach(element => {
+                    const { _id, name, price, imgURL, describe} = element;
+                    createItemCard(_id, name, imgURL, price, describe);
+                });
+            }
+            attachCartFunction()
+            attachDetailsFunction()
+        })
+        .catch(() => {
+            console.log('error');
+        });
 }
 function attachCartFunction(){
     let addToCartBtn = document.getElementsByClassName('add-to-cart');
@@ -69,7 +69,6 @@ function attachCartFunction(){
                         popUp.setAttribute('style', 'display:none;');
                     }, 1000);
                     addToCartBtn[i].innerText = 'In Cart';
-                    // addToCartBtn[i].disabled = true;
                 }
                 else{
                     popUp2.setAttribute('style', 'display:block;');
@@ -81,7 +80,6 @@ function attachCartFunction(){
             else{
                 localStorage.setItem('purchase', JSON.stringify(itemList));
                 addToCartBtn[i].innerText = 'In Cart';
-                // addToCartBtn[i].disabled = true;
                 popUp.setAttribute('style', 'display:block;');
                 setTimeout(() =>{
                     popUp.setAttribute('style', 'display:none;');
@@ -108,7 +106,6 @@ function inCartOnload(itemName){
 function detectInCartOnload(name, _id){
     if(inCartOnload(name)){
         let addToCartBtn = document.getElementById(_id);
-        // addToCartBtn.disabled = true;
         addToCartBtn.innerText = 'In Cart';
     }
 }
@@ -158,7 +155,7 @@ function createItemCard(_id, name, imgURL, price, describe){
         addToCart.id = _id;
 
         const details = document.createElement('a');
-        details.href = 'item_details.html';
+        details.href = '/item/display';
         details.className = 'btn btn-cards cards-detail';
         details.innerText = 'Details';
         details.id = _id;

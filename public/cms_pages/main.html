@@ -16,25 +16,10 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-      
         <div class="collapse navbar-collapse" id="navbarsExample04">
-          <!-- <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/cms/main">Dashboard<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Orders</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Inquiries</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Subscribe</a>
-            </li>
-          </ul> -->
           <ul class="navbar-nav navbar-right">
             <li class="nav-item">
-                <a class="nav-link" href="#">Welcome, User</a>
+                <a class="nav-link" href="#">Welcome, <span id="user-name">User</span></a>
               </li>
             <li class="nav-item">
               <a id="logout" class="nav-link" href="/cms/loginPage">Logout</a>
@@ -56,15 +41,16 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="list-group">
-                    <a href="/cms/main" class="list-group-item list-group-item-action">
+                    <a href="#" class="list-group-item list-group-item-action active">
                       Dashboard
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action">Orders</a>
-                    <a href="#" class="list-group-item list-group-item-action">Inquiries</a>
-                    <a href="#" class="list-group-item list-group-item-action">Subscribes</a>
+                    <a href="/cms/orders" class="list-group-item list-group-item-action">Orders</a>
+                    <a href="/cms/items" class="list-group-item list-group-item-action">Items</a>
+                    <a href="/cms/users" class="list-group-item list-group-item-action">Users</a> 
+                    <!-- <a href="/cms/inquiries" class="list-group-item list-group-item-action">Inquiries</a>                    -->
                 </div>
                 <div id="visits" class="card">
-                    <h5 class="card-header">Visits</h5>
+                    <h5 class="card-header">Subscribers</h5>
                     <div class="card-body">
                         <table class="table">
                             <thead class="thead">
@@ -99,83 +85,83 @@
             <main class="col-md-9">
                 <div class="card">
                     <h5 class="card-header">Overview</h5>
-                    <div class="row">                
-                        <div class="col-md-3">
+                    <div class="row">                                
+                        <div class="col-md-4">
                             <div class="card overview-item">
                                 <div class="card-body">
-                                    <h5 class="card-title">Total Users</h5>
-                                    <i class="fas fa-clipboard-list fa-2x"></i>
-                                    <p class="card-text overview-count">                                        
-                                        <span>300</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card overview-item">
-                                <div class="card-body">
-                                    <h5 class="card-title">Active Orders</h5>
+                                    <h5 class="card-title">Orders</h5>
                                     <i class="fas fa-dolly-flatbed fa-2x"></i>
                                     <p class="card-text overview-count">                                       
-                                        <span>300</span>
+                                        <span id="active-orders"></span>
                                     </p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3">
+                        </div>                       
+                        <div class="col-md-4">
                             <div class="card overview-item">
                                 <div class="card-body">
-                                    <h5 class="card-title">Active Inquiries</h5>
-                                    <i class="fas fa-question-circle fa-2x"></i>
-                                    <p class="card-text overview-count">                                      
-                                        <span>300</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card overview-item">
-                                <div class="card-body">
-                                    <h5 class="card-title">Total Orders</h5>
+                                    <h5 class="card-title">Items</h5>
                                     <i class="fas fa-box fa-2x"></i>
                                     <p class="card-text overview-count">                                       
-                                        <span class="overview-count">300</span>
+                                        <span id="total-items"></span>
                                     </p>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-4">
+                            <div class="card overview-item">
+                                <div class="card-body">
+                                    <h5 class="card-title">Users</h5>
+                                    <i class="fas fa-users fa-2x"></i>
+                                    <p class="card-text overview-count">                                        
+                                        <span id="total-users"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-3">
+                            <div class="card overview-item">
+                                <div class="card-body">
+                                    <h5 class="card-title">Orders</h5>
+                                    <i class="fas fa-question-circle fa-2x"></i>
+                                    <p class="card-text overview-count">                                      
+                                        <span id="total-orders"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="card">
-                    <h5 class="card-header">Latest Registrations</h5>
+                    <h5 class="card-header">Recent Registrations</h5>
                     <div class="card-body">
                         <table class="table">
                             <thead class="thead-dark">
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
                                 <th scope="col">Email</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
+                                <td class="firstName"></td>
+                                <td class="lastName"></td>
+                                <td class="email"></td>
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
+                                <td class="firstName"></td>
+                                <td class="lastName"></td>
+                                <td class="email"></td>
                             </tr>
                             <tr>
                                 <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
+                                <td class="firstName"></td>
+                                <td class="lastName"></td>
+                                <td class="email"></td>
                             </tr>
                             </tbody>
                         </table>
@@ -189,6 +175,7 @@
         </footer>
     </div>
     <!--container ends-->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="../cms_static/main.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

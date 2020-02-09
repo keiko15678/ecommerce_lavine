@@ -8,6 +8,7 @@ const orderSchema = new Schema({
   firstName: { type: String},
   lastName: { type: String},
   paid: { type: Boolean, required: true },
+  completed: { type: Boolean },
   dateAdded: { type: Date, default: Date.now }
 });
 

@@ -2,10 +2,35 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+const nodeMailer = require('nodemailer');
 const { ensureAuthenticated } = require('./config/authenticate.js');
 
 const User = require('./models/users_model.js');
 const Subscribe = require('./models/subscribe_model.js');
+
+//send email whenever received an inquiry
+router.post('/sendEmail', function (req, res) {
+    const { email, name , message } = req.body;
+    const transporter = nodeMailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {       
+            user: '', // real sender's account
+            pass: ''
+        }
+    });
+    const mailOptions = {
+        to: '', //recepient account
+        subject: 'inquiry@Lavine_sender: ' + name + '_email: ' + email,
+        body: message
+    };
+    transporter.sendMail(mailOptions, (err, info) => {
+        if (err) throw err;
+    });
+    res.writeHead(301, { Location: 'pages/inquiry_success.html' });
+    res.end();
+});
 
 //logout
 router.get('/logout', (req, res) =>{
@@ -21,6 +46,21 @@ router.get('/dashboard', ensureAuthenticated, (req,res) =>{
 //cart route
 router.get('/cart', (req, res) =>{
     res.sendFile(__dirname + '/public/pages/cart.html');
+})
+
+//men's route
+router.get('/men', (req, res) =>{
+    res.sendFile(__dirname + '/public/pages/shop-men.html');
+})
+
+//women's route
+router.get('/women', (req, res) =>{
+    res.sendFile(__dirname + '/public/pages/shop-women.html');
+})
+
+//cart route
+router.get('/item/display', (req, res) =>{
+    res.sendFile(__dirname + '/public/pages/item_details.html');
 })
 
 //subscribe handle
@@ -104,7 +144,7 @@ router.post('/register',(req, res) =>{
                     errors.push('Email is already registered.');
                 } else{
                     let newUser = new User({
-                        email, password, firstName, lastName, address, city, state, postal, country           
+                        email, password, firstName, lastName, address, city, state, postal, country, status: true           
                     });
                     //hash password
                     bcrypt.genSalt(10, (err, salt) =>{

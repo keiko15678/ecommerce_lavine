@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lavine - Dashboard</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/ba841414d2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../cms_static/main.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-default">
+        <a class="navbar-brand" href="#">Lavine Admin</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample04">
+          <ul class="navbar-nav navbar-right">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Welcome, <span id="user-name">User</span></a>
+            </li>
+            <li class="nav-item">
+              <a id="logout" class="nav-link" href="/cms/loginPage">Logout</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    <header class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 id="header-text"><i class="fas fa-box"></i><span>Items</span><small></small></h1>
+            </div>
+            <div class="col-md-2">
+                <a class="btn btn-info" style="float:right; margin-top:30px;" data-toggle="modal" data-target="#addNewItemModal">Add New Item</a>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="/cms/main" class="list-group-item list-group-item-action">
+                      Dashboard
+                    </a>
+                    <a href="/cms/orders" class="list-group-item list-group-item-action">Orders</a>             
+                    <a href="#" class="list-group-item list-group-item-action active">Items</a>
+                    <a href="/cms/users" class="list-group-item list-group-item-action">Users</a>
+                    <!-- <a href="/cms/inquiries" class="list-group-item list-group-item-action">Inquiries</a> -->
+                </div>
+            </div>
+
+            <main class="col-md-9">
+                <div class="card">
+                    <h5 class="card-header">Active Items</h5>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <!-- <th scope="col">Item ID</th> -->
+                                <th scope="col">Name</th>
+                                <th scope="col">Price ($)</th>
+                                <th scope="col">Stock</th>
+                                <!-- <th scope="col">Image URL</th> -->
+                                <!-- <th scope="col">Type</th>
+                                <th scope="col">Gender</th> -->
+                                <!-- <th scope="col">Description</th>
+                                <th scope="col">Details</th>
+                                <th scope="col">Specifications</th>
+                                <th scope="col">Delivery</th> -->
+                                <th scope="col">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody id="incomplete-order-data">
+                            <!-- <tr>
+                                <th scope="row">1</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><a href="/order/complete" class="btn btn-primary btn-sm">Complete</a></td>
+                            </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card">
+                    <h5 class="card-header">Inactive Items</h5>
+                    <div class="card-body">
+                        <!-- <div class="container">
+                        <div class="row">
+                        <div class="col-md-12"> -->
+                        <table class="table">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <!-- <th scope="col">Item ID</th> -->
+                                <th scope="col">Name</th>
+                                <th scope="col">Price ($)</th>
+                                <th scope="col">Stock</th>
+                                <!-- <th scope="col">Image URL</th> -->
+                                <!-- <th scope="col">Type</th>
+                                <th scope="col">Gender</th> -->
+                                <!-- <th scope="col">Description</th>
+                                <th scope="col">Details</th>
+                                <th scope="col">Specifications</th>
+                                <th scope="col">Delivery</th> -->
+                                <th scope="col">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody id="complete-order-data">
+                            <!-- <tr>
+                                <th scope="row">1</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><a href="/order/complete" class="btn btn-primary btn-sm">Complete</a></td>
+                            </tr> -->
+                            </tbody>
+                        </table>
+                        <!-- </div>
+                        </div>
+                        </div> -->
+                    </div>
+                </div>
+            </main>
+        </div>
+        <!--row ends-->
+        <footer>
+            <p class="mt-5 mb-3 text-muted">&copy; Laving Inc. 2020</p>
+        </footer>
+
+        <!-- Edit Item Modal -->
+        <div class="modal fade" id="editItemModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Edit Item</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <form method="post" action="/item/edit">
+                        <div class="modal-body">
+                        ...
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="editItemBtn">Submit</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Item Modal -->
+        <div class="modal fade" id="addNewItemModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">New Item</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <form method="post" action="/items">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="productName">Product Name</label>
+                                <input type="text" class="form-control" name="name" id="productName" placeholder="Women's Red High Heels">
+                            </div>
+                            <div class="form-group" >
+                                <label for="price">Price ($)</label>
+                                <input type="text" class="form-control" name="price" id="price" placeholder="29.99">
+                            </div>
+                            <div class="form-group" >
+                                <label for="img-url">Image URL</label>
+                                <input type="text" class="form-control" name="imgURL" id="img-url" placeholder="https://localhost:8080">
+                            </div>
+                            <div class="form-group" >
+                                <label for="stock">Stock</label>
+                                <input type="range" class="form-control-range" name="stock" id="stock" min="0" max="100" value="50">
+                                Value: <span id="stock-value">100</span>
+                            </div>                   
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="delivery">Delivery</label>
+                                <textarea class="form-control" id="delivery" name="delivery" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="specifications">Specifications</label>
+                                <textarea class="form-control" id="specifications" name="specifications" rows="3"></textarea>
+                            </div>
+                            <label>Status</label>
+                            <div class="form-check" >                         
+                                <input type="radio" class="form-check-input" name="status" id="radio1" checked value="true"/>
+                                <label class="form-check-label" for="radio1">Active</label>                                            
+                            </div>
+                            <div class="form-check" > 
+                                <input type="radio" class="form-check-input" name="status" id="radio2" value="false"/>
+                                <label class="form-check-label" for="radio2">Inactive</label>
+                            </div>
+                            <label style="margin-top: 15px;">Gender</label>
+                            <div class="form-check" >                         
+                                <input type="radio" class="form-check-input" name="gender" id="radio3" checked value="male"/>
+                                <label class="form-check-label" for="radio3">Male</label>                                            
+                            </div>
+                            <div class="form-check" >
+                                <input type="radio" class="form-check-input" name="gender" id="radio4" value="female"/>
+                                <label class="form-check-label" for="radio4">Female</label>
+                            </div>                                
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-primary" id="addItemBtn" value="Submit"></input>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--container ends-->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../cms_static/items.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

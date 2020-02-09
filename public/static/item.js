@@ -3,10 +3,12 @@ const itemId = localStorage.getItem('current');
 axios.get(`/items/${itemId}`)
     .then((response) =>{
         const item = response.data;
-        const { _id, name, price, imgURL, describe, productDetails, delivery, specifications, reviews, questions, slideshow, rating} = item;
+        const { _id, name, price, imgURL, describe, productDetails, delivery, specifications, reviews, questions, slideshow, rating, gender} = item;
         writeTitle(name)
         writeBody(price, rating, describe, delivery, specifications, reviews, questions, slideshow, rating)
         attachFunctions()
+        backBtn(gender)
+        // detectInCartOnload(name)
     })
     .catch(() => {
         console.log('error');
@@ -56,6 +58,18 @@ function writeBody(price, rating, describe, delivery, specifications, reviews, q
 
 }
 
+function backBtn(gender){
+    let backBtn = document.getElementById('returnBtn');
+    let backBtnText = document.getElementById('label-name');
+    if(gender === 'male'){
+        backBtn.href = "/men";
+        backBtnText.innerText = "Men's";
+    } else if (gender === 'female'){
+        backBtn.href = "/women";
+        backBtnText.innerText = "Women's";
+    }
+}
+
 function attachFunctions(){
     let addToCartBtn = document.getElementsByClassName('add-to-cart');
     let price = document.getElementsByClassName('price-tag');
@@ -90,41 +104,45 @@ function attachFunctions(){
                 setTimeout(() =>{
                     popUp.setAttribute('style', 'display:none;');
                 }, 1000);
+                // addToCartBtn[0].innerText = 'In Cart';
             }
             else{
                 popUp2.setAttribute('style', 'display:block;');
                 setTimeout(() =>{
                     popUp2.setAttribute('style', 'display:none;');
                 }, 1000);
-            }     
+            }
         }
         else{
             localStorage.setItem('purchase', JSON.stringify(itemList));
-            // addToCartBtn[0].innerText = 'In Cart';
-            // addToCartBtn[0].disabled = true;
             popUp.setAttribute('style', 'display:block;');
             setTimeout(() =>{
                 popUp.setAttribute('style', 'display:none;');
             }, 1000);
-
+            // addToCartBtn[0].innerText = 'In Cart';
         }
-
-
-        // localStorage.setItem('buy*' + itemName + '*' + price[0].innerText, 1);
-        // popUp.setAttribute('style', 'display:block;');
-        // setTimeout(() =>{
-        //     popUp.setAttribute('style', 'display:none;');
-        // }, 1000);
     })
 }
 
+// function inCartOnload(itemName){
+//     let inCart = false;
+//     if(localStorage.hasOwnProperty('purchase')){
+//         const toArr = JSON.parse(localStorage.getItem('purchase'));      
+//         toArr.forEach(element =>{
+//             let { name } = element;
+//             if(name === itemName){
+//                 inCart = true;
+//             }
+//         })
+//     }
+//     return inCart;
+// }
 
-// let instantBtn = document.getElementsByClassName('instant-purchase')
-// instantBtn[0].addEventListener('click', (event) => {
-    // let itemName = document.getElementById("itemName").innerText;
-    // localStorage.setItem('instant*' + itemName + '*' + price[0].innerText, 1);
-    // localStorage.setItem('instant-subtotal', price[0].innerText);
-// })
-
+// function detectInCartOnload(name){
+//     if(inCartOnload(name)){
+//         let addToCartBtn = document.getElementsByClassName('add-to-cart');
+//         addToCartBtn[0].innerText = 'In Cart';
+//     }
+// }
 
 

@@ -34,6 +34,7 @@ router.get('/cms/orders', (req, res) =>{
 router.get('/cms/register', (req, res) =>{
     res.sendFile(__dirname + '/public/cms_pages/register.html');
 })
+
 //register handle
 router.post('/cms/registerForm', (req, res) =>{
     const { email, password } = req.body;
@@ -299,26 +300,19 @@ router.delete('/items', (req, res) => {
         .then(item => res.json(item))
 })
 
-
-
 //add an item
 router.post('/items', (req, res) => {
     console.log(req.body)
     const { name, price, imgURL, stock, description, delivery, specifications, status, gender } = req.body;
     const item = new Item({
-        name, //req.body.name
-        price, //req.body.price
+        name,
+        price,
         imgURL,
         type: 'shoes',
         gender,
         describe: description,
-        // productDetails: [],
         delivery,
         specifications,
-        // reviews: ['great','awesome'],
-        // questions: ['question','answer'],
-        // slideshow: ['https://www.adidas.com.ph/dw/image/v2/bcbs_prd/on/demandware.static/-/Sites-adidas-products/default/dw3aa60fd2/zoom/F36199_01_standard.jpg?sh=320&strip=false&sw=320'],
-        // rating: '',
         stock,
         status
     })
@@ -327,8 +321,8 @@ router.post('/items', (req, res) => {
         .catch(err => console.log(err));
     //create test item
     // const item = new Item({
-    //     name : 'Blue High tops', //req.body.name
-    //     price: '32.50', //req.body.price
+    //     name : 'Blue High tops',
+    //     price: '32.50',
     //     imgURL: 'https://www.adidas.com.ph/dw/image/v2/bcbs_prd/on/demandware.static/-/Sites-adidas-products/default/dw3aa60fd2/zoom/F36199_01_standard.jpg?sh=320&strip=false&sw=320', //req.body.imgURL
     //     type: 'shoes',
     //     gender: 'female',

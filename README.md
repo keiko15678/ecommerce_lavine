@@ -6,7 +6,7 @@ Fully functional ecommerce website with MongoDB, Express, and NodeJS.
 npm install
 ```
 
-## Functionalities:
+## Functionalities
 
 * A Shop for users to browser, login, and store personal infos such as shipping details, email and name.
 * A CMS for the merchat to track orders and users.
@@ -23,4 +23,4 @@ npm install
 
 ## Author
 
-This App is created entirely by myself.
+This App is created entirely by myself and is deployed at https://safe-ridge-34093.herokuapp.com/.

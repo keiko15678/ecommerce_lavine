@@ -1,4 +1,4 @@
-### Ecommerce Website
+# Ecommerce Website
 Fully functional ecommerce website with MongoDB, Express, and NodeJS.
 
 ## Getting Started

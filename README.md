@@ -24,3 +24,4 @@ npm install
 ## Author
 
 This App is created entirely by myself and is deployed at https://safe-ridge-34093.herokuapp.com/.
+* Link to CMS is https://safe-ridge-34093.herokuapp.com/cms.

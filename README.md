@@ -4,6 +4,7 @@ Fully functional ecommerce website with MongoDB, Express, and NodeJS.
 ## Getting Started
 ```
 npm install
+npm run start
 ```
 
 ## Functionalities
@@ -21,7 +22,7 @@ npm install
 * Shopping Cart functionalities.
 * Email auto-sender.
 
-## Author
+## Demo
 
-This App is created entirely by myself and is deployed at https://safe-ridge-34093.herokuapp.com/.
+This App is deployed at https://safe-ridge-34093.herokuapp.com/.
 * Link to CMS is https://safe-ridge-34093.herokuapp.com/cms.
